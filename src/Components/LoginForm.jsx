@@ -18,9 +18,9 @@ export default function LoginForm() {
     console.log(email);
   }
   return (
-    <div className="bg-[#1F2123] mx-auto my-auto p-5">
+    <div className="bg-[#1F2123] mx-auto my-auto py-5 px-2 md:px-5">
       <form
-        className="flex flex-col gap-5 p-5 rounded-xl"
+        className="flex flex-col gap-5 py-5 px-0 md:px-5 rounded-xl"
         onSubmit={submitHandler}
       >
         <InputBox

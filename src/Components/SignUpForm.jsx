@@ -34,9 +34,9 @@ export default function SignUpForm() {
     console.log(email);
   }
   return (
-    <div className=" bg-[#1F2123] md:mx-auto my-auto">
+    <div className=" bg-[#1F2123] py-5 px-2 md:px-5 mx-auto my-auto">
       <form
-        className="flex flex-col gap-5 p-5 rounded-xl"
+        className="flex flex-col gap-5 py-5 px-0 md:px-5 rounded-xl"
         onSubmit={submitHandler}
       >
         <div className="flex gap-5">

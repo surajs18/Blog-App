@@ -1,11 +1,12 @@
 import HeaderSymbol from "./HeaderSymbol";
 import { FaUserAlt } from "react-icons/fa";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { FaHamburger } from "react-icons/fa";
 import { useState } from "react";
 
 export default function Header() {
   const loc = useLocation();
+  const navigate = useNavigate();
   const [ham, setHam] = useState(false);
 
   document.addEventListener("mouseup", () => {
@@ -21,6 +22,7 @@ export default function Header() {
           ? "text-[#62CA9C]"
           : "text-[#5347B8]"
       }`}
+      onClick={() => navigate("/coderoad/posts")}
     >
       Posts
     </li>,
@@ -31,6 +33,7 @@ export default function Header() {
           ? "text-[#62CA9C]"
           : "text-[#5347B8]"
       }`}
+      onClick={() => navigate("/coderoad/notifications")}
     >
       Notifications
     </li>,
@@ -41,6 +44,7 @@ export default function Header() {
           ? "text-[#62CA9C]"
           : "text-[#5347B8]"
       }`}
+      onClick={() => navigate("/coderoad/profile")}
     >
       <FaUserAlt fontSize={30} />
     </li>,

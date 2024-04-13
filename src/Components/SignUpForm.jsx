@@ -1,28 +1,72 @@
 import { useState } from "react";
-import InputBox from "./UI/InputBox";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import InputBox from "./UI/InputBox";
 
-export default function LoginForm() {
+export default function SignUpForm() {
+  const [firstName, setFirstName] = useState("");
+  const [firstNameColor, setFirstNameColor] = useState("");
+
+  const [lastName, setLastName] = useState("");
+  const [lastNameColor, setLastNameColor] = useState("");
+
   const [email, setEmail] = useState("");
   const [emailColor, setEmailColor] = useState("");
 
   const [password, setPassword] = useState("");
   const [passwordColor, setPasswordColor] = useState("");
 
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [confirmPasswordColor, setConfirmPasswordColor] = useState("");
+
   function submitHandler(e) {
     e.preventDefault();
+    if (password !== confirmPassword) {
+      setPasswordColor("Red");
+      setConfirmPasswordColor("Red");
+      return;
+    }
+    setFirstNameColor("Green");
+    setLastNameColor("Green");
     setEmailColor("Green");
     setPasswordColor("Green");
     console.log(email);
   }
   return (
-    <div className="bg-[#1F2123] mx-auto my-auto p-5">
+    <div className=" bg-[#1F2123] mx-auto my-auto">
       <form
         className="flex flex-col gap-5 p-5 rounded-xl"
         onSubmit={submitHandler}
       >
+        <div className="flex gap-5">
+          <InputBox
+            inputValue={firstName}
+            setInputValue={setFirstName}
+            type="name"
+            required={true}
+            boxColor={firstNameColor}
+            size={"larger"}
+            placeholder="Eg. Ramesh"
+            clearable={false}
+            autoFocus={true}
+            header="First Name"
+            width="8rem"
+          />
+          <InputBox
+            inputValue={lastName}
+            setInputValue={setLastName}
+            type="email"
+            required={true}
+            boxColor={lastNameColor}
+            size={"larger"}
+            placeholder="Eg. Kovil"
+            clearable={false}
+            autoFocus={false}
+            header="Last Name"
+            width="8rem"
+          />
+        </div>
         <InputBox
           inputValue={email}
           setInputValue={setEmail}
@@ -32,7 +76,7 @@ export default function LoginForm() {
           size={"larger"}
           placeholder="Example@gmail.com"
           clearable={true}
-          autoFocus={true}
+          autoFocus={false}
           header="Email"
         />
 
@@ -46,6 +90,18 @@ export default function LoginForm() {
           placeholder="********"
           autoFocus={false}
           header="Password"
+        />
+
+        <InputBox
+          inputValue={confirmPassword}
+          setInputValue={setConfirmPassword}
+          type="password"
+          required={true}
+          boxColor={confirmPasswordColor}
+          size={"larger"}
+          placeholder="********"
+          autoFocus={false}
+          header="Confirm Password"
         />
 
         <button
@@ -65,9 +121,9 @@ export default function LoginForm() {
         </button>
       </div>
       <p className="pb-5 text-center cursor-default">
-        Don’t have an account{" "}
-        <Link className="text-[#62CA9C] cursor-pointer" to={"/sign-up"}>
-          Sign up
+        Already have an account{" "}
+        <Link className="text-[#62CA9C] cursor-pointer" to={"/"}>
+          Log in
         </Link>
       </p>
     </div>

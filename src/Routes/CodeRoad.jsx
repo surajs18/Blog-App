@@ -1,10 +1,10 @@
 import { Route, Routes } from "react-router-dom";
-import Login from "../Pages/Login";
+import Posts from "../Pages/Posts";
 
 export default function CodeRoad() {
   return (
     <Routes>
-      <Route path="/" element={<Login />} />
+      <Route path="/posts" element={<Posts />} />
     </Routes>
   );
 }

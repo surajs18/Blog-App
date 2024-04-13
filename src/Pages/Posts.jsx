@@ -57,7 +57,7 @@ export default function Posts() {
     <div className="md:mx-5 mt-5">
       <Header />
       <div className="mt-5 flex flex-col-reverse md:flex-row px-5 gap-5">
-        <div className="h-[85dvh] overflow-y-scroll overscroll-y-contain flex flex-col gap-3 flex-grow mx-auto">
+        <div className="md:h-[85dvh] md:overflow-y-scroll md:overscroll-y-contain flex flex-col gap-3 flex-grow mx-auto">
           {posts?.map((i) => (
             <PostBox data={i} key={i.id} />
           ))}

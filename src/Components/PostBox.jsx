@@ -2,8 +2,10 @@ import { FaUserAlt } from "react-icons/fa";
 import { RiHeartsLine, RiHeartsFill } from "react-icons/ri";
 import { FaBookmark, FaRegBookmark } from "react-icons/fa6"; //FaHashtag,
 import { GoDotFill } from "react-icons/go";
+import { useNavigate } from "react-router-dom";
 
 export default function PostBox({ data }) {
+  const navigate = useNavigate();
   function countValue(count) {
     const k = Math.floor(count / 10 ** 3);
     const m = Math.floor(count / 10 ** 6);
@@ -35,7 +37,12 @@ export default function PostBox({ data }) {
     <div className="bg-[#1F2023] p-5 cursor-default">
       <div className="flex flex-wrap items-center gap-3 p-2">
         <FaUserAlt fontSize={30} className="text-[#5347B8]" />
-        <p className="text-[#62CA9C] font-bold text-lg md:text-2xl cursor-pointer">
+        <p
+          className="text-[#62CA9C] font-bold text-lg md:text-2xl cursor-pointer line-clamp-1"
+          onClick={() =>
+            navigate(`/coderoad/article/${data?.id}`, { smooth: true })
+          }
+        >
           {data.title}
         </p>
         <GoDotFill fontSize={10} className="md:inline hidden" />
@@ -44,7 +51,12 @@ export default function PostBox({ data }) {
         <p className="text-[#5347B8] text-xs md:text-base">{data.author}</p>
       </div>
 
-      <p className="text-[#B6ADFF] md:px-[3rem] mb-3 h-[48px] line-clamp-2 md:h-[96px] md:line-clamp-4 cursor-pointer">
+      <p
+        className="text-[#B6ADFF] md:px-[3rem] mb-3 h-[48px] line-clamp-2 md:h-[96px] md:line-clamp-4 cursor-pointer"
+        onClick={() =>
+          navigate(`/coderoad/article/${data?.id}`, { smooth: true })
+        }
+      >
         {data.description}
       </p>
 

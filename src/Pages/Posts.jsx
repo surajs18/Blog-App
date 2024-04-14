@@ -15,6 +15,8 @@ export default function Posts() {
         "MEARN (Mongoose Express Axios React in Node) it a common basic dev term among the web developers which is the basic requirement or pre-requisite for a web development role in the development sector of the coding industry also cabcdefghijk",
       liked: true,
       saved: true,
+      saveCount: 1590,
+      likeCount: 298,
       category: "Web development",
     },
     {
@@ -24,8 +26,10 @@ export default function Posts() {
       author: "Nithin Sivakumar",
       description:
         "MEARN (Mongoose Express Axios React in Node) it a common basic dev term among the web developers which is the basic requirement or pre-requisite for a web development role in the development sector of the coding industry also cabcdefghijk",
-      liked: false,
+      liked: true,
       saved: false,
+      saveCount: 159000,
+      likeCount: 2980,
       category: "Web development",
     },
     {
@@ -35,7 +39,7 @@ export default function Posts() {
       author: "Nithin Sivakumar",
       description:
         "MEARN (Mongoose Express Axios React in Node) it a common basic dev term among the web developers which is the basic requirement or pre-requisite for a web development role in the development sector of the coding industry also cabcdefghijk",
-      liked: true,
+      liked: false,
       saved: true,
       category: "Web development",
     },
@@ -46,8 +50,10 @@ export default function Posts() {
       author: "Nithin Sivakumar",
       description:
         "MEARN (Mongoose Express Axios React in Node) it a common basic dev term among the web developers which is the basic requirement or pre-requisite for a web development role in the development sector of the coding industry also cabcdefghijk",
-      liked: true,
-      saved: true,
+      liked: false,
+      saved: false,
+      saveCount: 1590,
+      likeCount: 2980,
       category: "Web development",
     },
   ]);

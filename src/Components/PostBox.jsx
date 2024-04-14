@@ -1,9 +1,36 @@
 import { FaUserAlt } from "react-icons/fa";
 import { RiHeartsLine, RiHeartsFill } from "react-icons/ri";
-import { FaHashtag, FaBookmark, FaRegBookmark } from "react-icons/fa6";
+import { FaBookmark, FaRegBookmark } from "react-icons/fa6"; //FaHashtag,
 import { GoDotFill } from "react-icons/go";
 
 export default function PostBox({ data }) {
+  function countValue(count) {
+    const k = Math.floor(count / 10 ** 3);
+    const m = Math.floor(count / 10 ** 6);
+    const b = Math.floor(count / 10 ** 9);
+
+    if (b > 0) return `${b}B`;
+    if (m > 0) return `${m}M`;
+    if (k > 0) return `${k}K`;
+    return count;
+  }
+
+  function save(id) {
+    console.log(id);
+  }
+
+  function unsave(id) {
+    console.log(id);
+  }
+
+  function like(id) {
+    console.log(id);
+  }
+
+  function unlike(id) {
+    console.log(id);
+  }
+
   return (
     <div className="bg-[#1F2023] p-5 cursor-default">
       <div className="flex flex-wrap items-center gap-3 p-2">
@@ -23,33 +50,49 @@ export default function PostBox({ data }) {
 
       <div className=" text-[#B6ADFF] flex justify-between gap-4 items-center pb-2">
         <div className="flex items-center gap-5">
-          {data.liked ? (
-            <RiHeartsFill className="cursor-pointer text-2xl md:text-4xl" />
-          ) : (
-            <RiHeartsLine fontSize={30} className="cursor-pointer" />
-          )}
-
+          <span className="flex flex-col justify-center items-center">
+            {data.liked ? (
+              <RiHeartsFill
+                className="cursor-pointer text-2xl md:text-4xl"
+                onClick={unlike}
+              />
+            ) : (
+              <RiHeartsLine
+                fontSize={30}
+                className="cursor-pointer"
+                onClick={like}
+              />
+            )}
+            <p className="text-xs">{countValue(data?.likeCount)}</p>
+          </span>
           <p className="bg-[#5347B8] text-center rounded-full px-[1rem] text-sm">
             {data.category}
           </p>
         </div>
 
-        <div className="flex items-center gap-5">
-          <FaHashtag
+        <div className="flex items-center gap-5 pr-0 md:pr-8">
+          {/* <FaHashtag
             fontSize={30}
             className="cursor-pointer text-2xl md:text-4xl"
-          />
-          {data.liked ? (
-            <FaBookmark
-              fontSize={30}
-              className="cursor-pointer text-2xl md:text-4xl"
-            />
-          ) : (
-            <FaRegBookmark
-              fontSize={30}
-              className="cursor-pointer text-2xl md:text-4xl"
-            />
-          )}
+          /> */}
+          <span className="flex gap-2 justify-center items-center">
+            {data.saved ? (
+              <FaBookmark
+                fontSize={30}
+                className="cursor-pointer text-2xl md:text-4xl"
+                onClick={unsave}
+              />
+            ) : (
+              <FaRegBookmark
+                fontSize={30}
+                className="cursor-pointer text-2xl md:text-4xl"
+                onClick={save}
+              />
+            )}
+            <p className="text-xl font-thin w-[2rem]">
+              {countValue(data?.saveCount)}
+            </p>
+          </span>
         </div>
       </div>
     </div>

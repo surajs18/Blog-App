@@ -1,11 +1,14 @@
 import { FaUserAlt } from "react-icons/fa";
 import { RiHeartsLine, RiHeartsFill } from "react-icons/ri";
 import { FaBookmark, FaRegBookmark } from "react-icons/fa6"; //FaHashtag,
+import { MdEdit } from "react-icons/md";
 import { GoDotFill } from "react-icons/go";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function PostBox({ data }) {
+  const loc = useLocation();
   const navigate = useNavigate();
+  const path = loc?.pathname === "/coderoad/profile/posts";
   function countValue(count) {
     const k = Math.floor(count / 10 ** 3);
     const m = Math.floor(count / 10 ** 6);
@@ -87,6 +90,13 @@ export default function PostBox({ data }) {
             fontSize={30}
             className="cursor-pointer text-2xl md:text-4xl"
           /> */}
+          {path && (
+            <MdEdit
+              fontSize={30}
+              className="cursor-pointer text-2xl md:text-4xl"
+            />
+          )}
+
           <span className="flex gap-2 justify-center items-center">
             {data.saved ? (
               <FaBookmark

@@ -56,7 +56,7 @@ export default function SignUpForm() {
           <InputBox
             inputValue={lastName}
             setInputValue={setLastName}
-            type="email"
+            type="name"
             required={true}
             boxColor={lastNameColor}
             size={"larger"}

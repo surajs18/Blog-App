@@ -14,11 +14,13 @@ export default function Header() {
       setHam(false);
     }
   });
+
   const list = [
     <li
       key={1}
       className={` hover:text-[#62CA9C] cursor-pointer font-semibold ${
-        loc?.pathname === "/coderoad/posts"
+        loc?.pathname === "/coderoad/posts" ||
+        loc?.pathname?.includes("/coderoad/article")
           ? "text-[#62CA9C]"
           : "text-[#5347B8]"
       }`}
@@ -40,7 +42,7 @@ export default function Header() {
     <li
       key={3}
       className={` hover:text-[#62CA9C] cursor-pointer mx-auto font-semibold ${
-        loc?.pathname === "/coderoad/profile"
+        loc?.pathname?.includes("/coderoad/profile")
           ? "text-[#62CA9C]"
           : "text-[#5347B8]"
       }`}
